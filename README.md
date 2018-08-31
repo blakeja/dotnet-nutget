@@ -14,7 +14,7 @@ Run Deploy-Container.ps1 from the scripts directory to build the solution and de
   - The NuGet server address will be mapped to http://nugetserver
   - The default package directory will be mapped to c:\packages.
   
-### Configuration
+#### Configuration
 
 The server address and package directory can be configuring by setting the following environment variables before building.
 
