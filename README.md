@@ -1,6 +1,6 @@
 # Dotnet NuGet Server
 
-[https://github.com/NuGet/NuGet.Server](NuGet.Server) in a 1709 docker container
+[NuGet.Server](https://github.com/NuGet/NuGet.Server) in a 1709 docker container
 
 ## Requirements
 
