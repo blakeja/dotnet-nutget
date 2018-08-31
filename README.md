@@ -16,10 +16,10 @@ Run Deploy-Container.ps1 from the scripts directory to build the solution and de
   
 #### Configuration
 
-The server address and package directory can be configuring by setting the following environment variables before building.
+The server address and package directory can be configuring by passing the following parameters to deploy-container.ps1.
 
-- PACKAGES_FOLDER - docker will map a volume to this directory for persistent package storage, defaults to c:\packages.
-- NUGET_HOSTNAME - used to map a hostname to the docker container, defaults to "nugetserver"
+- -PackagesDir, docker will map a volume to this directory for persistent package storage, defaults to c:\packages.
+- -Hostname, used to map a hostname to the docker container, defaults to "nugetserver"
 
 Specific NuGet.Server settings can be made in the [Web.config](https://github.com/blakeja/dotnet-nutget/blob/master/src/NugetServer/Web.config)
 
