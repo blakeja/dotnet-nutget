@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  nugetserver:
+    restart: always
+    hostname: ${NUGET_HOSTNAME:-nugetserver}
+    container_name: nugetserver-container
+    image: nugetserver:latest
+    build:
+      context: .\NugetServer
+      dockerfile: Dockerfile
+    volumes:
+      - ${PACKAGES_FOLDER:-c:\packages}:c:\packages      
+      
+networks:
+  default:
+    external:
+      name: nat
