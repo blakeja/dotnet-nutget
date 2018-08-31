@@ -7,6 +7,10 @@
 - [.NET Framework 4.6 SDK](https://www.microsoft.com/net/download/visual-studio-sdks)
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
+## Docker Image
+
+[blakeja/dotnet-nuget](https://hub.docker.com/r/blakeja/dotnet-nuget/)
+
 ## Install
 
 Run Deploy-Container.ps1 from the scripts directory to build the solution and deploy the container to your local docker instance with the following defaults:
