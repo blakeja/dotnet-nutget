@@ -11,7 +11,7 @@
 
 [blakeja/dotnet-nuget](https://hub.docker.com/r/blakeja/dotnet-nuget/)
 
-## Install
+## Manual Install
 
 Run Deploy-Container.ps1 from the scripts directory to build the solution and deploy the container to your local docker instance with the following defaults:
 
