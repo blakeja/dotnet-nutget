@@ -21,7 +21,7 @@ The server address and package directory can be configuring by setting the follo
 - PACKAGES_FOLDER - docker will map a volume to this directory for persistent package storage, defaults to c:\packages.
 - NUGET_HOSTNAME - used to map a hostname to the docker container, defaults to "nugetserver"
 
-Specific NuGet.Server settings can be made in [/src/NugetServer/Web.config](Web.config)
+Specific NuGet.Server settings can be made in the [Web.config(https://github.com/blakeja/dotnet-nutget/blob/master/src/NugetServer/Web.config)
 
 ## Licenses
 
