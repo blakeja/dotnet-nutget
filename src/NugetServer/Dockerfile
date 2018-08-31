@@ -1,11 +1,10 @@
 FROM microsoft/aspnet
 ARG source
+ENV PACKAGES_FOLDER=c:\\packages
 WORKDIR /inetpub/wwwroot
 
 COPY ${source:-obj/Docker/publish} .
 
-# Ensure the package folder exists and is writeable
-RUN if (!(Test-Path c:\\packages)) { md c:\\packages }
+RUN if (!(Test-Path (Get-Item env:PACKAGES_FOLDER).Value)) { md (Get-Item env:PACKAGES_FOLDER).Value }
 
-# Ensure we can write to the packages directory
-RUN ["icacls c:\\packages /grant users:(OI)(CI)F"]
+RUN icacls (Get-Item env:PACKAGES_FOLDER).Value /grant (\"users:(OI)(CI)F\")

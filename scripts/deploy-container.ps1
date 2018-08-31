@@ -1,37 +1,34 @@
 [CmdletBinding()]
 param( 
 	[string]
-    $buildToolsDir = "$PSScriptRoot\..\build-tools",
+    $Configuration = "Release", 
 
 	[string]
-    $configuration = "Release", 
+    $Hostname = "nugetserver",
 
 	[string]
-    $hostname = "nugetserver",
+    $PackagesDir = "C:\packages",
 
 	[string]
-    $packagesDirectory = "d:\packages",
-
-	[string]
-    $projectDir = "$PSScriptRoot\..\src"
+    $ProjectDir = "$PSScriptRoot\..\src"
 )
 
 $ErrorActionPreference = "Stop"
 
 function Set-EnvironmentVariables()
 {
-	$env:PACKAGES_FOLDER = $packagesDirectory
-	$env:NUGET_HOSTNAME = $hostname
+	$env:PACKAGES_FOLDER = $PackagesDir
+	$env:NUGET_HOSTNAME = $Hostname
 	
 	Update-NugetPackages
 }
 
 function Update-NugetPackages()
 { 
-	Write-Host "--> Restoring packages for $projectDir\NugetServer\NugetServer.cspro" -foregroundcolor "Green"
-	Write-Host "--> $PSScriptRoot\nuget.exe restore $projectDir\NugetServer\NugetServer.csproj -PackagesDirectory $projectDir\packages"
+	Write-Host "--> Restoring packages for $ProjectDir\NugetServer\NugetServer.cspro" -foregroundcolor "Green"
+	Write-Host "--> $PSScriptRoot\nuget.exe restore $ProjectDir\NugetServer\NugetServer.csproj -PackagesDirectory $ProjectDir\packages"
 	
-	& $PSScriptRoot\nuget.exe restore $projectDir\NugetServer\NugetServer.csproj -PackagesDirectory $projectDir\packages
+	& $PSScriptRoot\nuget.exe restore $ProjectDir\NugetServer\NugetServer.csproj -PackagesDirectory $ProjectDir\packages
 		
 	Build-Solution
 }
@@ -41,8 +38,8 @@ function Build-Solution()
 	Write-Host "--> Building NugetServer.sln" -foregroundcolor "Green"
 	
 	$argumentList = @(
-		"$projectDir\NugetServer.sln", 
-		"/p:Configuration=$configuration",
+		"$ProjectDir\NugetServer.sln", 
+		"/p:Configuration=$Configuration",
 		"/t:rebuild"
 	)
 	
@@ -55,17 +52,9 @@ function Build-Solution()
 
 function Deploy-Container()
 {	
-	#Write-Host "--> $imageId = docker images $($hostname):latest --quiet"
-	#$imageId = docker images "$($hostname):latest" --quiet
-	#Write-Host "--> Image id: $imageId" -foregroundcolor "Green"
-
-	#Write-Host "--> Tagging image $imageid as $($hostname)" -foregroundcolor "Green"
-	#Write-Host "--> docker tag $imageId $($hostname)"
-	#& docker tag $imageId "$($hostname)"
-	
 	Write-Host "--> Bringing up container" -foregroundcolor "Green"
-	Write-Host "--> docker-compose -f $projectDir\docker-compose.yml -p $hostname up -d"
-	& docker-compose -f "$projectDir\docker-compose.yml" -p $hostname up -d
+	Write-Host "--> docker-compose -f $ProjectDir\docker-compose.yml -p $Hostname up -d"
+	& docker-compose -f "$ProjectDir\docker-compose.yml" -p $Hostname up -d
 }
 
 Set-EnvironmentVariables

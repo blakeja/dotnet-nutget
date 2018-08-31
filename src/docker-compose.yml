@@ -4,7 +4,7 @@ services:
   nugetserver:
     restart: always
     hostname: ${NUGET_HOSTNAME:-nugetserver}
-    container_name: nugetserver-container
+    container_name: dotnet-nuget
     image: nugetserver:latest
     build:
       context: .\NugetServer
