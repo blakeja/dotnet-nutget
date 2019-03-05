@@ -4,13 +4,16 @@ services:
   nugetserver:
     restart: always
     hostname: ${NUGET_HOSTNAME:-nugetserver}
-    container_name: dotnet-nuget
+    container_name: nugetserver
     image: nugetserver:latest
     build:
       context: .\NugetServer
       dockerfile: Dockerfile
     volumes:
-      - ${PACKAGES_FOLDER:-c:\packages}:c:\packages      
+      - ${PACKAGES_FOLDER:-c:\packages}:c:\packages    
+    networks:
+      default:
+        ipv4_address: 172.20.0.10
       
 networks:
   default:
