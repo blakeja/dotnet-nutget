@@ -1,13 +1,17 @@
 # Dotnet NuGet Server
 
-[NuGet.Server](https://github.com/NuGet/NuGet.Server) in a 1709 docker container
+[NuGet.Server](https://github.com/NuGet/NuGet.Server) in a windows docker container
 
 ## Requirements
 
 - [.NET Framework 4.6 SDK](https://www.microsoft.com/net/download/visual-studio-sdks)
 - [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 
-## Install
+## Docker Image
+
+[blakeja/dotnet-nuget](https://hub.docker.com/r/blakeja/dotnet-nuget/)
+
+## Manual Install
 
 Run Deploy-Container.ps1 from the scripts directory to build the solution and deploy the container to your local docker instance with the following defaults:
 
