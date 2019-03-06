@@ -3,7 +3,7 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Windows</DockerTargetOS>
-    <ProjectGuid>be1d2ea5-667b-4a6f-bc13-43eb3c98572f</ProjectGuid>
+    <ProjectGuid>60ba3f80-73d3-4ac1-bd7a-f0a55b627160</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
     <DockerServiceUrl>http://{ServiceIPAddress}</DockerServiceUrl>
     <DockerServiceName>nugetserver</DockerServiceName>
