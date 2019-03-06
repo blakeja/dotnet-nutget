@@ -1,4 +1,4 @@
-FROM microsoft/aspnet
+FROM mcr.microsoft.com/dotnet/framework/aspnet
 ARG source
 ENV PACKAGES_FOLDER=c:\\packages
 WORKDIR /inetpub/wwwroot

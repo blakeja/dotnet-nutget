@@ -9,7 +9,7 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{370AE0B1-1165-4567-AC9E-181A730DA930}"
 	ProjectSection(SolutionItems) = preProject
-		..\scripts\deploy-container.ps1 = ..\scripts\deploy-container.ps1
+		..\scripts\build-container.ps1 = ..\scripts\build-container.ps1
 		..\scripts\nuget.exe = ..\scripts\nuget.exe
 	EndProjectSection
 EndProject

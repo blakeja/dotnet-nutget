@@ -25,7 +25,7 @@ function Set-EnvironmentVariables()
 
 function Update-NugetPackages()
 { 
-	Write-Host "--> Restoring packages for $ProjectDir\NugetServer\NugetServer.cspro" -foregroundcolor "Green"
+	Write-Host "--> Restoring packages for $ProjectDir\NugetServer\NugetServer.csproj" -foregroundcolor "Green"
 	Write-Host "--> $PSScriptRoot\nuget.exe restore $ProjectDir\NugetServer\NugetServer.csproj -PackagesDirectory $ProjectDir\packages"
 	
 	& $PSScriptRoot\nuget.exe restore $ProjectDir\NugetServer\NugetServer.csproj -PackagesDirectory $ProjectDir\packages
